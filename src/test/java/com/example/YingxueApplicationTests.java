@@ -13,8 +13,8 @@ class YingxueApplicationTests {
     AdminDao adminDao;
     @Test
     void contextLoads() {
-        Admin select = adminDao.select();
-        System.out.println(select);
+//        Admin select = adminDao.select();
+//        System.out.println(select);
     }
 
 }
