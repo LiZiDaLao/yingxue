@@ -1,9 +1,13 @@
 package com.example.service.impl;
 
+import com.example.dao.AdminDao;
+import com.example.dto.AdminDTO;
+import com.example.entity.Admin;
 import com.example.service.AdminService;
 import com.example.util.ImageCodeUtil;
 import com.example.util.UUIDUtil;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +23,8 @@ public class AdminServiceImpl implements AdminService {
 
   @Resource
   StringRedisTemplate stringRedisTemplate;
+  @Resource
+    AdminDao adminDao;
 
     @Override
     public HashMap<String,Object> getImg() {
@@ -38,6 +44,38 @@ public class AdminServiceImpl implements AdminService {
             map.put("codeId",codeId);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        return map;
+    }
+
+    @Override
+    public HashMap<String, Object> login(AdminDTO adminDTO) {
+        //获取验证码
+        //验证
+        ValueOperations<String, String> stringOption = stringRedisTemplate.opsForValue();
+        String codeId = stringOption.get(adminDTO.getCodeId());
+        HashMap<String,Object> map=new HashMap<>();
+        if(codeId!=null){
+        if(codeId.equals(adminDTO.getEnCode())){
+            Admin admin = adminDao.selectByName(adminDTO.getUsername());
+            if(admin!=null){
+                if(adminDTO.getPassword().equals(admin.getPassword())){
+                    String adminUUID = UUIDUtil.getUUID();
+                    stringOption.set(adminUUID,admin.getId().toString(),1,TimeUnit.DAYS);
+                    map.put("status",200);
+                    map.put("massage",admin);
+                }else {
+                    map.put("status",401);
+                    map.put("massage","该用户不存在");
+                }
+            }else {
+                map.put("status",401);
+                map.put("massage","该用户不存在");
+            }
+        }
+        }else {
+            map.put("status",401);
+            map.put("massage","该用户不存在");
         }
         return map;
     }
