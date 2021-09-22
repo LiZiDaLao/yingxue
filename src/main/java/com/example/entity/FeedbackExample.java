@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class AttentionExample {
+public class FeedbackExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public AttentionExample() {
+    public FeedbackExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -165,6 +165,146 @@ public class AttentionExample {
             return (Criteria) this;
         }
 
+        public Criteria andTitleIsNull() {
+            addCriterion("title is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleIsNotNull() {
+            addCriterion("title is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleEqualTo(String value) {
+            addCriterion("title =", value, "title");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleNotEqualTo(String value) {
+            addCriterion("title <>", value, "title");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleGreaterThan(String value) {
+            addCriterion("title >", value, "title");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleGreaterThanOrEqualTo(String value) {
+            addCriterion("title >=", value, "title");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleLessThan(String value) {
+            addCriterion("title <", value, "title");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleLessThanOrEqualTo(String value) {
+            addCriterion("title <=", value, "title");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleLike(String value) {
+            addCriterion("title like", value, "title");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleNotLike(String value) {
+            addCriterion("title not like", value, "title");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleIn(List<String> values) {
+            addCriterion("title in", values, "title");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleNotIn(List<String> values) {
+            addCriterion("title not in", values, "title");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleBetween(String value1, String value2) {
+            addCriterion("title between", value1, value2, "title");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleNotBetween(String value1, String value2) {
+            addCriterion("title not between", value1, value2, "title");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentIsNull() {
+            addCriterion("content is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentIsNotNull() {
+            addCriterion("content is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentEqualTo(String value) {
+            addCriterion("content =", value, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentNotEqualTo(String value) {
+            addCriterion("content <>", value, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentGreaterThan(String value) {
+            addCriterion("content >", value, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentGreaterThanOrEqualTo(String value) {
+            addCriterion("content >=", value, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentLessThan(String value) {
+            addCriterion("content <", value, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentLessThanOrEqualTo(String value) {
+            addCriterion("content <=", value, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentLike(String value) {
+            addCriterion("content like", value, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentNotLike(String value) {
+            addCriterion("content not like", value, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentIn(List<String> values) {
+            addCriterion("content in", values, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentNotIn(List<String> values) {
+            addCriterion("content not in", values, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentBetween(String value1, String value2) {
+            addCriterion("content between", value1, value2, "content");
+            return (Criteria) this;
+        }
+
+        public Criteria andContentNotBetween(String value1, String value2) {
+            addCriterion("content not between", value1, value2, "content");
+            return (Criteria) this;
+        }
+
         public Criteria andUserIdIsNull() {
             addCriterion("user_id is null");
             return (Criteria) this;
@@ -222,126 +362,6 @@ public class AttentionExample {
 
         public Criteria andUserIdNotBetween(Integer value1, Integer value2) {
             addCriterion("user_id not between", value1, value2, "userId");
-            return (Criteria) this;
-        }
-
-        public Criteria andAttentionUserIdIsNull() {
-            addCriterion("attention_user_id is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andAttentionUserIdIsNotNull() {
-            addCriterion("attention_user_id is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andAttentionUserIdEqualTo(Integer value) {
-            addCriterion("attention_user_id =", value, "attentionUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andAttentionUserIdNotEqualTo(Integer value) {
-            addCriterion("attention_user_id <>", value, "attentionUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andAttentionUserIdGreaterThan(Integer value) {
-            addCriterion("attention_user_id >", value, "attentionUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andAttentionUserIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("attention_user_id >=", value, "attentionUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andAttentionUserIdLessThan(Integer value) {
-            addCriterion("attention_user_id <", value, "attentionUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andAttentionUserIdLessThanOrEqualTo(Integer value) {
-            addCriterion("attention_user_id <=", value, "attentionUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andAttentionUserIdIn(List<Integer> values) {
-            addCriterion("attention_user_id in", values, "attentionUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andAttentionUserIdNotIn(List<Integer> values) {
-            addCriterion("attention_user_id not in", values, "attentionUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andAttentionUserIdBetween(Integer value1, Integer value2) {
-            addCriterion("attention_user_id between", value1, value2, "attentionUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andAttentionUserIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("attention_user_id not between", value1, value2, "attentionUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsAttentionIsNull() {
-            addCriterion("is_attention is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsAttentionIsNotNull() {
-            addCriterion("is_attention is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsAttentionEqualTo(Integer value) {
-            addCriterion("is_attention =", value, "isAttention");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsAttentionNotEqualTo(Integer value) {
-            addCriterion("is_attention <>", value, "isAttention");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsAttentionGreaterThan(Integer value) {
-            addCriterion("is_attention >", value, "isAttention");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsAttentionGreaterThanOrEqualTo(Integer value) {
-            addCriterion("is_attention >=", value, "isAttention");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsAttentionLessThan(Integer value) {
-            addCriterion("is_attention <", value, "isAttention");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsAttentionLessThanOrEqualTo(Integer value) {
-            addCriterion("is_attention <=", value, "isAttention");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsAttentionIn(List<Integer> values) {
-            addCriterion("is_attention in", values, "isAttention");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsAttentionNotIn(List<Integer> values) {
-            addCriterion("is_attention not in", values, "isAttention");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsAttentionBetween(Integer value1, Integer value2) {
-            addCriterion("is_attention between", value1, value2, "isAttention");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsAttentionNotBetween(Integer value1, Integer value2) {
-            addCriterion("is_attention not between", value1, value2, "isAttention");
             return (Criteria) this;
         }
 

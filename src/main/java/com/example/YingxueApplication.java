@@ -1,9 +1,10 @@
 package com.example;
 
-import org.mybatis.spring.annotation.MapperScan;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-@MapperScan("com.example.dao")
+@tk.mybatis.spring.annotation.MapperScan("com.example.dao")
+@org.mybatis.spring.annotation.MapperScan("com.example.dao")
 @SpringBootApplication
 public class YingxueApplication {
 
