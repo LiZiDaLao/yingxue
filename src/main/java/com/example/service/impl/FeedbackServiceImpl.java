@@ -43,7 +43,7 @@ public class FeedbackServiceImpl implements FeedbackService {
             feedbackMapper.updateByPrimaryKeySelective(feedback);
          return CommonResult.success();
         }catch (Exception e){
-           e.printStackTrace();
+          // e.printStackTrace();
            return CommonResult.filed();
         }
     }

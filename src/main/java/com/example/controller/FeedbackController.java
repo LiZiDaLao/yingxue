@@ -22,7 +22,8 @@ public class FeedbackController {
     }
     @PostMapping("delete")
     public CommonResult delete(@RequestBody Feedback feedback){
-        return null;
+        return feedbackService.delete(feedback);
+
     }
 
 }
