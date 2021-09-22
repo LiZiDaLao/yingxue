@@ -1,11 +1,10 @@
 package com.example.controller;
 
-import com.example.dto.FeedbackDTO;
+import com.example.dto.PageDTO;
 import com.example.entity.Feedback;
-import com.example.entity.FeedbackExample;
 import com.example.service.FeedbackService;
 import com.example.vo.CommonResult;
-import com.example.vo.FeedbackVO;
+import com.example.vo.CommonResultVO;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -17,8 +16,8 @@ public class FeedbackController {
     @Resource
     FeedbackService feedbackService;
     @PostMapping("queryAllPage")
-    public FeedbackVO queryAllPage(@RequestBody FeedbackDTO feedbackDTO){
-        return feedbackService.queryAllPage(feedbackDTO);
+    public CommonResultVO queryAllPage(@RequestBody PageDTO pageDTO){
+        return feedbackService.queryAllPage(pageDTO);
     }
     @PostMapping("delete")
     public CommonResult delete(@RequestBody Feedback feedback){

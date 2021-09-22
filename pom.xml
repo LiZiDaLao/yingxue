@@ -116,20 +116,14 @@
             <version>1.4</version>
         </dependency>
 
-<!--        &lt;!&ndash;数据库驱动&ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>mysql</groupId>-->
-<!--            <artifactId>mysql-connector-java</artifactId>-->
-<!--            <version>5.1.38</version>-->
-<!--        </dependency>-->
+        <!--aliyun短信服务-->
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-java-sdk-core</artifactId>
+            <version>4.5.16</version>
+        </dependency>
 
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.projectlombok/lombok &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.projectlombok</groupId>-->
-<!--            <artifactId>lombok</artifactId>-->
-<!--            <version>1.18.4</version>-->
-<!--            <scope>provided</scope>-->
-<!--        </dependency>-->
+
 
 
     </dependencies>

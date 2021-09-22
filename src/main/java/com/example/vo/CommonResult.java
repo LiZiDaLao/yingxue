@@ -11,9 +11,15 @@ public class CommonResult {
     private String message;
     private Integer status;
     public static CommonResult success(){
-       return new CommonResult("执行成功",200);
+        CommonResult commonResult = new CommonResult();
+        commonResult.setMessage("执行成功");
+        commonResult.setStatus(200);
+        return commonResult;
     }
     public static CommonResult filed(){
-        return new CommonResult("执行失败",500);
+        CommonResult commonResult = new CommonResult();
+        commonResult.setMessage("执行失败");
+        commonResult.setStatus(500);
+        return commonResult;
     }
 }

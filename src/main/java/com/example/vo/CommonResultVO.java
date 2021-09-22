@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class FeedbackVO {
+public class CommonResultVO {
     private Integer page;
     private Integer total;
     private Object rows;
