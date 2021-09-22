@@ -10,6 +10,8 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import java.io.IOException;
@@ -54,29 +56,56 @@ public class AdminServiceImpl implements AdminService {
         //验证
         ValueOperations<String, String> stringOption = stringRedisTemplate.opsForValue();
         String codeId = stringOption.get(adminDTO.getCodeId());
-        HashMap<String,Object> map=new HashMap<>();
-        if(codeId!=null){
-        if(codeId.equals(adminDTO.getEnCode())){
-            Admin admin = adminDao.selectByName(adminDTO.getUsername());
-            if(admin!=null){
-                if(adminDTO.getPassword().equals(admin.getPassword())){
-                    String adminUUID = UUIDUtil.getUUID();
-                    stringOption.set(adminUUID,admin.getId().toString(),1,TimeUnit.DAYS);
-                    map.put("status",200);
-                    map.put("massage",admin);
-                }else {
-                    map.put("status",401);
-                    map.put("massage","该用户不存在");
+        HashMap<String, Object> map = new HashMap<>();
+        if (codeId != null) {
+            if (codeId.equals(adminDTO.getEnCode())) {
+                Admin admin = adminDao.selectByName(adminDTO.getUsername());
+                if (admin != null) {
+                    if (adminDTO.getPassword().equals(admin.getPassword())) {
+                        //存储用户标记
+                        String adminUUID = UUIDUtil.getUUID();
+                        stringOption.set(adminUUID, admin.getId().toString(), 1, TimeUnit.DAYS);
+                        map.put("status", 200);
+                        map.put("message", adminUUID);
+                    } else {
+                        map.put("status", 401);
+                        map.put("message", "密码错误");
+                    }
+                } else {
+                    map.put("status", 401);
+                    map.put("message", "该用户不存在");
                 }
-            }else {
-                map.put("status",401);
-                map.put("massage","该用户不存在");
+            } else {
+                map.put("status", 401);
+                map.put("message", "验证码不正确");
             }
-        }
-        }else {
-            map.put("status",401);
-            map.put("massage","该用户不存在");
-        }
+        }else{
+                map.put("status", 401);
+                map.put("message", "验证码不能为空");
+            }
+            return map;
+    }
+
+    @Override
+    public Admin queryToken( String token) {
+        //获取用户id
+        String adminIds = stringRedisTemplate.opsForValue().get(token);
+        //根据id查询用户信息
+      //  System.out.println(adminDao.selectById(Integer.valueOf(adminId)));
+        Integer adminId=Integer.valueOf(adminIds);
+       // System.out.println(adminId);
+        Admin admin = adminDao.selectById((Integer) adminId);
+        System.out.println(admin);
+        return admin;
+
+    }
+
+    @Override
+    public HashMap<String, Object> logout(String token) {
+        //获取用户id
+         stringRedisTemplate.delete(token);
+        HashMap<String,Object>map=new HashMap<>();
+        map.put("massage","删除成功");
         return map;
     }
 }

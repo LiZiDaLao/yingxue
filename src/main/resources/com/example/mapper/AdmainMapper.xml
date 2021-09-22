@@ -5,5 +5,8 @@
 <select id="selectByName" resultType="Admin">
     select id,username,password,create_time createTime,update_time updateTime,delete_time deleteTime from yx_admin where username=#{username} and delete_time is not null
 </select>
+    <select id="selectById" resultType="Admin">
+        select id,username,password,create_time createTime,update_time updateTime,delete_time deleteTime from yx_admin where id=#{id} and delete_time is not null
+    </select>
 
 </mapper>
